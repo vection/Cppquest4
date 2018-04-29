@@ -158,10 +158,10 @@ public:
 
 	friend CircularInt operator+(int a, CircularInt &p)
 	{
-		CircularInt temp(min, max);
+		CircularInt temp(p.min, p.max);
 		temp.number = a + p.number;
-		if (temp.number > 12)
-			temp.number = temp.number%max;
+		if (temp.number > p.max)
+			temp.number = temp.number%p.max;
 
 		return temp;
 	}
