@@ -93,19 +93,33 @@ public:
 			return temp;
 		}
 		else {
-			b = b % (p.max);
-			b = p.max + b;
-			temp.number = b;
+			b = b % (p.max);  
+			if (b == 0) { temp.number == temp.max; }
+			else { temp.number = b; }
 			return temp;
 		}
 	}
 
 	CircularInt operator-(CircularInt &p)
 	{
-		CircularInt temp(p);
-		temp = temp + (-p);
+		CircularInt temp(*this); 
+		/*temp = temp + (-p);
 		if (temp.number > max)
 			temp.number = temp.number%max;
+
+		CircularInt temp(p);
+		*/
+		int num = temp.number - p.number;
+
+		if (num < 0) {
+			temp.number = abs(num);
+		}
+		else if (num == 0) { temp.number = temp.max; }
+		else {
+			num = num % temp.max;
+			if (num == 0) { temp.number = temp.max; }
+			else { temp.number = num; }
+		}
 
 		return temp;
 	}
