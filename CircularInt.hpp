@@ -85,7 +85,7 @@ public:
 		CircularInt temp(p);
 		int b = a - p.number;
 		if (b < 0) {
-			temp.number = Abs(b);
+			temp.number = abs(b);
 			return temp;
 		}
 		else if (b == 0) {
